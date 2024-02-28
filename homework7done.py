@@ -161,6 +161,18 @@ def show_all(book):
     for name, record in book.data.items():
         print(name,record)
 
+def add_birthday(args, book):
+    name, birthday = args
+    record = book.find(name)
+    if record:
+        record.birthday = birthday
+        return f"{name}'s birthday: {record.get_birthday()}"
+    else:
+        return "Error. This name does not exist. Try adding."
+        
+        return "Birthday updated"
+
+
 
 def main():
     
@@ -186,6 +198,9 @@ def main():
             print(show_birthday(args, book))
         elif command == "birthdays":
             print(birthdays(args, book))
+        elif command == "add_birthday":
+            print(add_birthday(args, book))
+
         else:
             print("Invalid command.")
 
