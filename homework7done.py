@@ -165,7 +165,7 @@ def add_birthday(args, book):
     name, birthday = args
     record = book.find(name)
     if record:
-        record.birthday = birthday
+        record.birthday = Birthday(birthday)
         return f"{name}'s birthday: {record.get_birthday()}"
     else:
         return "Error. This name does not exist. Try adding."
